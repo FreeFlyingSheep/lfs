@@ -20,7 +20,6 @@ PATH=/usr/bin
 if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
 PATH=$LFS/tools/bin:$PATH
 export LFS LC_ALL LFS_TGT PATH
-export MAKEFLAGS='-j4'
 bash ~/script/build.sh
 EOF
 
@@ -29,4 +28,5 @@ EOF
 # 所以无法通过管道的方式来让新建的 shell 继续执行命令
 # 直接在 .bashrc 最后加入 ~/script/build.sh（lfs/build.sh的拷贝）
 # 强制每次登录 lfs 用户都执行 build.sh，以此实现自动构建
-source ~/.bash_profile
+# 此处需要退出后重新进入，而不是 source ~/.bash_profile
+exit 0

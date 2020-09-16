@@ -4,8 +4,7 @@ set -e
 ## 0. 说明
 # 本脚本遵循 MIT 协议
 # 本脚本用于自动构建 LFS systemd 10.0
-# 目前本脚本还未完成！
-VERSION=0.3
+VERSION=0.4
 
 echo "    __    ___________"
 echo "   / /   / ____/ ___/"
@@ -25,6 +24,7 @@ fi
 cd `dirname $0`
 
 # 导出脚本所需的环境变量
+export DISK_IMG=disk.img
 export DISK_LOG=disk.log
 
 # 导出 $LFS 环境变量
@@ -58,7 +58,7 @@ bash host/download.sh
 bash host/prepare.sh
 
 ## 10. 使 LFS 系统可引导
-bash test.sh
+echo "10!!!"
 
 ## 11. 尾声
 bash host/follow-up.sh

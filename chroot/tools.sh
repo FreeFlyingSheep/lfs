@@ -1,14 +1,12 @@
 #!/bin/bash
 set -e
 
-pushd /sources/script/tools
+echo "构建其他临时工具"
 
-bash libstd.sh
-bash gettext.sh
-bash bison.sh
-bash perl.sh
-bash python.sh
-bash texinfo.sh
-bash util-linux.sh
-
-popd
+bash /sources/script/tools/libstd.sh
+bash /sources/script/tools/gettext.sh
+bash /sources/script/tools/bison.sh
+bash /sources/script/tools/perl.sh
+bash /sources/script/tools/python.sh
+bash /sources/script/tools/texinfo.sh
+bash /sources/script/tools/util-linux.sh

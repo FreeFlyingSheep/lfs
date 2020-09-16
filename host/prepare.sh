@@ -27,15 +27,26 @@ echo "拷贝脚本到指定目录……"
 cp -r chroot $LFS/sources
 mv $LFS/sources/chroot $LFS/sources/script
 cp -r lfs /home/lfs/
-mv lfs /home/lfs/lfs $LFS/sources/script
-# 改变 lfs 家目录下的脚本所有者，源码目录下的脚本所有者将在后续步骤被更改
+mv /home/lfs/lfs /home/lfs/script
+# 改变 lfs 家目录下的脚本所有者，源码目录下的脚本所有者保持 root，无需更改
 chown -R lfs /home/lfs/script
 
+# 将 lfs 设为 $LFS 中所有目录的所有者，使 lfs 对它们拥有完全访问权
+chown -v lfs $LFS/{usr,lib,var,etc,bin,sbin,tools}
+case $(uname -m) in
+  x86_64) chown -v lfs $LFS/lib64 ;;
+esac
 # 改变源码目录所有者
 chown -v lfs $LFS/sources
 
 # 通过管道来指定切换用户后需要执行的命令
 # init.sh 为 lfs/init.sh 的拷贝
+echo "切换到 lfs 用户"
 su - lfs << "EOF"
 bash ~/script/init.sh
+EOF
+
+# 再次切换到 lfs 用户，完成构建
+su - lfs << "EOF"
+exit 0
 EOF

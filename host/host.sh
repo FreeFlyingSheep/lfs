@@ -20,12 +20,12 @@ esac
 done
 
 echo "创建虚拟磁盘……"
-# 创建 20G 的虚拟磁盘 disk.img
-dd if=/dev/zero of=disk.img bs=1M count=0 seek=10240
+# 创建 20G 的虚拟磁盘 $DISK_IMG
+dd if=/dev/zero of=$DISK_IMG bs=1M count=0 seek=10240
 # 把虚拟磁盘采用 mbr 形式分区
-parted -s disk.img mklabel msdos
+parted -s $DISK_IMG mklabel msdos
 # 把虚拟磁盘虚拟为块设备
-losetup -f --show disk.img > $DISK_LOG
+losetup --show -f $DISK_IMG > $DISK_LOG
 # 获取挂载的块设备
 DISK=`cat $DISK_LOG`
 echo "虚拟块设备位于 $DISK"

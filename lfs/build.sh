@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-cd ~/script
+cd $LFS/sources
 
 # 进行并行构建
-export MAKEFLAGS='-j4'
+export MAKEFLAGS='-j8'
 
 if [ "$LFS" != "/mnt/lfs" ]; then
   echo "LFS 环境变量配置错误"
@@ -12,10 +12,10 @@ if [ "$LFS" != "/mnt/lfs" ]; then
 fi
 
 # 编译交叉工具链
-bash toolchain.sh
+bash ~/script/toolchain.sh
 
 # 交叉编译临时工具
-bash tools.sh
+bash ~/script/tools.sh
 
 # 进入 Chroot 并构建其他临时工具
-bash chroot.sh
+bash ~/script/chroot.sh

@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "Now execute software.sh!!!"
+echo "安装基本系统软件"
+
 exit 1
