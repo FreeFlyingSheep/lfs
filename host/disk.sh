@@ -1,24 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "检查宿主机环境……"
-bash host/version-check.sh
-
-echo "在执行下一步前，请确保宿主机环境正确配置："
-select choice in "继续执行" "退出"; do
-case $choice in
-  "继续执行")
-    break
-    ;;
-  "退出")
-    exit 1
-    ;;
-  *)
-    echo "无效的选项，请重试："
-    ;;
-esac
-done
-
 echo "创建虚拟磁盘……"
 # 创建 20G 的虚拟磁盘 $DISK_IMG
 dd if=/dev/zero of=$DISK_IMG bs=1M count=0 seek=10240

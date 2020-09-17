@@ -4,7 +4,7 @@ set -e
 tar -xf diffutils-3.7.tar.xz
 pushd diffutils-3.7
 
-准备编译 Diffutils
+# 准备编译 Diffutils
 ./configure --prefix=/usr --host=$LFS_TGT
 
 # 编译 Diffutils

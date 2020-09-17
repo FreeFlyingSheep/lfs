@@ -11,7 +11,7 @@ fi
 
 # 删除相关文件和目录
 rm -rf $LFS
-rm -f $DISK_LOG
+rm -ff $LOG
 
 # 若 lfs 用户存在，删除它
 grep -q "lfs" /etc/passwd && userdel -r lfs

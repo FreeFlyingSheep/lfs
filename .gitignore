@@ -1,3 +1,3 @@
 lfs-packages-10.0.tar
-*.log
+log/
 disk.img

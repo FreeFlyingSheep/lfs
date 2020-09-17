@@ -46,16 +46,8 @@ su - lfs << "EOF"
 bash ~/scripts/init.sh
 EOF
 
-# 再次切换到 lfs 用户，完成构建后自动退出回到 root 用户
-su - lfs << "EOF"
-exit 0
-EOF
-
 echo "删除 lfs 用户……"
-# 删除 lfs 用户存在
 userdel -r lfs
-# 删除 lfs 用户组
-groupdel lfs
 
 # 恢复 /etc/bash.bashrc
 [ ! -e /etc/bash.bashrc.NOUSE ] || mv -v /etc/bash.bashrc.NOUSE /etc/bash.bashrc

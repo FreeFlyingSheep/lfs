@@ -2,7 +2,7 @@
 set -e
 
 tar -xf gzip-1.10.tar.xz
-pushd gzip-1.10.tar.xz
+pushd gzip-1.10
 
 # 准备编译 Gzip
 ./configure --prefix=/usr --host=$LFS_TGT

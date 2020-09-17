@@ -8,12 +8,13 @@ bash ~/scripts/toolchain/gcc.sh
 bash ~/scripts/toolchain/linux-headers.sh
 bash ~/scripts/toolchain/glibc.sh
 
-确认新工具链的各基本功能 (编译和链接) 能如我们所预期的那样工作
+# 确认新工具链的各基本功能 (编译和链接) 能如我们所预期的那样工作
 echo 'int main(){}' > dummy.c
 $LFS_TGT-gcc dummy.c
 MSG1=`readelf -l a.out | grep '/ld-linux'`
 MSG2='[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]'
-if [ $MSG1 != $MSG2 ]; then
+echo "$MSG1" | grep -q "$MSG2"
+if [ $? -ne 0 ]; then
   echo "交叉编译工具错误！"
   exit 1
 fi
