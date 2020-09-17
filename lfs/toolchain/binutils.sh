@@ -9,7 +9,7 @@ mkdir -v build
 cd build
 
 # 准备编译 Binutils
-../configure --prefix=$LFS/tools       \
+../configure --prefix=$LFS/tools        \
              --with-sysroot=$LFS        \
              --target=$LFS_TGT          \
              --disable-nls              \

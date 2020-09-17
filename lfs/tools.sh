@@ -3,20 +3,20 @@ set -e
 
 echo "交叉编译临时工具……"
 
-bash ~/script/tools/m4.sh
-bash ~/script/tools/ncurses.sh
-bash ~/script/tools/bash.sh
-bash ~/script/tools/coreutils.sh
-bash ~/script/tools/diffutils.sh
-bash ~/script/tools/file.sh
-bash ~/script/tools/findutils.sh
-bash ~/script/tools/gawk.sh
-bash ~/script/tools/grep.sh
-bash ~/script/tools/gzip.sh
-bash ~/script/tools/make.sh
-bash ~/script/tools/patch.sh
-bash ~/script/tools/sed.sh
-bash ~/script/tools/tar.sh
-bash ~/script/tools/xz.sh
-bash ~/script/tools/binutils.sh
-bash ~/script/tools/gcc.sh
+bash ~/scripts/tools/m4.sh
+bash ~/scripts/tools/ncurses.sh
+bash ~/scripts/tools/bash.sh
+bash ~/scripts/tools/coreutils.sh
+bash ~/scripts/tools/diffutils.sh
+bash ~/scripts/tools/file.sh
+bash ~/scripts/tools/findutils.sh
+bash ~/scripts/tools/gawk.sh
+bash ~/scripts/tools/grep.sh
+bash ~/scripts/tools/gzip.sh
+bash ~/scripts/tools/make.sh
+bash ~/scripts/tools/patch.sh
+bash ~/scripts/tools/sed.sh
+bash ~/scripts/tools/tar.sh
+bash ~/scripts/tools/xz.sh
+bash ~/scripts/tools/binutils.sh
+bash ~/scripts/tools/gcc.sh

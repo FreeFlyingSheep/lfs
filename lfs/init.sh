@@ -20,13 +20,14 @@ PATH=/usr/bin
 if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
 PATH=$LFS/tools/bin:$PATH
 export LFS LC_ALL LFS_TGT PATH
-bash ~/script/build.sh
+bash ~/scripts/build.sh
 EOF
 
 # 为了完全准备好编译临时工具的环境，指示 shell 读取刚才创建的配置文件
 # 由于在 .bash_profile 中使用新建了 shell
 # 所以无法通过管道的方式来让新建的 shell 继续执行命令
-# 直接在 .bashrc 最后加入 ~/script/build.sh（lfs/build.sh的拷贝）
+# 直接在 .bashrc 最后加入 ~/scripts/build.sh（lfs/build.sh的拷贝）
 # 强制每次登录 lfs 用户都执行 build.sh，以此实现自动构建
-# 此处需要退出后重新进入，而不是 source ~/.bash_profile
+# source 命令无法达到想要的效果，需要退出 lfs 用户后重新切换回来
+# source ~/.bash_profile
 exit 0

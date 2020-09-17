@@ -7,7 +7,7 @@ cd /sources
 export MAKEFLAGS='-j8'
 
 # 构建其他临时工具
-bash /sources/script/tools.sh
+bash /sources/scripts/tools.sh
 
 # .la 文件仅在链接到静态库时有用
 # 在使用动态共享库时它们没有意义，甚至有害，特别是对于非 autotools 构建系统
@@ -24,4 +24,4 @@ rm -rf /usr/share/{info,man,doc}/*
 # ...
 
 # 安装基本系统软件
-bash /sources/script/softwares.sh
+bash /sources/scripts/softwares.sh

@@ -92,5 +92,5 @@ EOF
 # 通过管道来指定新 shell 中需要执行的命令
 # build.sh 为 chroot/build.sh 的拷贝
 exec /bin/bash --login +h << "EOF"
-bash /sources/script/build.sh
+bash /sources/scripts/build.sh
 EOF

@@ -39,5 +39,5 @@ chroot "$LFS" /usr/bin/env -i   \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     /bin/bash --login +h        \
     << "EOF"
-bash /sources/script/init.sh
+bash /sources/scripts/init.sh
 EOF
