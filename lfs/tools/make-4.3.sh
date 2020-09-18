@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Make
+# 配置 Make
 ./configure --prefix=/usr   \
             --without-guile \
             --host=$LFS_TGT \

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 GMP
+# 配置 GMP
 ./configure --prefix=/usr    \
             --enable-cxx     \
             --disable-static \

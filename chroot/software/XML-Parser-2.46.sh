@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 XML::Parser
+# 配置 XML::Parser
 perl Makefile.PL
 
 # 编译 XML::Parser

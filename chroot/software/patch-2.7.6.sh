@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
 
-# 配置 Make
+# 配置 Patch
 ./configure --prefix=/usr
 
-# 编译 Make
+# 编译 Patch
 make
 
-# 测试 Make
+# 测试 Patch
 # make check
 
-# 安装 Make
+# 安装 Patch
 make install

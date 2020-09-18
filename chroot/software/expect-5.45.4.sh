@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Expect
+# 配置 Expect
 ./configure --prefix=/usr           \
             --with-tcl=/usr/lib     \
             --enable-shared         \

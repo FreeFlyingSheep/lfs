@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Zlib
+# 配置 Zlib
 ./configure --prefix=/usr
 
 # 编译 Zlib

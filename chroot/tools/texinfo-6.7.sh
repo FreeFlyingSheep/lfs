@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Texinfo
+# 配置 Texinfo
 ./configure --prefix=/usr
 
 # 编译 Texinfo

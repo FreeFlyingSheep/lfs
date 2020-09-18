@@ -19,13 +19,13 @@ esac
 
 # GCC 文档推荐在一个专用的目录中构建 GCC
 mkdir -v build
-cd build
+cd       build
 
 # 创建一个符号链接，以允许 libgcc 在构建时启用 POSIX 线程支持
 mkdir -pv $LFS_TGT/libgcc
 ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h
 
-# 准备编译 GCC
+# 配置 GCC
 ../configure                                       \
     --build=$(../config.guess)                     \
     --host=$LFS_TGT                                \

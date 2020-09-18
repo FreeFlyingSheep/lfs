@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 File
+# 配置 File
 ./configure --prefix=/usr
 
 # 编译 File

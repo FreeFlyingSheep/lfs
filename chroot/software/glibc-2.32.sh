@@ -7,9 +7,9 @@ patch -Np1 -i ../glibc-2.32-fhs-1.patch
 
 # Glibc 文档推荐在专用目录中构建它
 mkdir -v build
-cd build
+cd       build
 
-# 准备编译 Glibc
+# 配置 Glibc
 ../configure --prefix=/usr                            \
              --disable-werror                         \
              --enable-kernel=3.2                      \

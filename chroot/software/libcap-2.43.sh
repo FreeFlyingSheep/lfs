@@ -8,7 +8,7 @@ sed -i '/install -m.*STACAPLIBNAME/d' libcap/Makefile
 make lib=lib
 
 # 测试 Libcap
-make test
+# make test
 
 # 安装 Libcap，并进行清理工作
 make lib=lib PKGCONFIGDIR=/usr/lib/pkgconfig install

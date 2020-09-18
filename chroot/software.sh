@@ -153,16 +153,16 @@ elif [ $1 == "2" ]; then
     kbd-2.3.0
     libpipeline-1.5.3
     make-4.3
-    patch
-    man
-    tar
-    texinfo
-    vim
-    systemd
+    patch-2.7.6
+    man-db-2.9.3
+    tar-1.32
+    texinfo-6.7
+    vim-8.2.1361
+    systemd-246
     dbus-1.12.20
-    procps
-    util
-    e2fsprogs
+    procps-ng-3.3.16
+    util-linux-2.36
+    e2fsprogs-1.45.6
   )
 fi
 

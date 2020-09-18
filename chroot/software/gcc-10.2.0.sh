@@ -11,9 +11,9 @@ esac
 
 # GCC 文档推荐在专用的构建目录中构建 GCC
 mkdir -v build
-cd build
+cd       build
 
-# 准备编译 GCC
+# 配置 GCC
 ../configure --prefix=/usr            \
              LD=ld                    \
              --enable-languages=c,c++ \
@@ -93,6 +93,8 @@ echo "$MSG" | grep -q 'found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2'
 
 # 删除测试文件
 rm -v dummy.c a.out dummy.log
+
+unset MSG
 
 # 移动一个位置不正确的文件
 mkdir -pv /usr/share/gdb/auto-load/usr/lib

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Gzip
+# 配置 Gzip
 ./configure --prefix=/usr
 
 # 编译 Gzip

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Flex
+# 配置 Flex
 ./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.4
 
 # 编译 Flex

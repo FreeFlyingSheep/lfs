@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Check
+# 配置 Check
 ./configure --prefix=/usr --disable-static
 
 # 编译 Check

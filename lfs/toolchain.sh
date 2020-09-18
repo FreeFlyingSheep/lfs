@@ -37,6 +37,7 @@ $LFS_TGT-gcc dummy.c
 MSG=`readelf -l a.out | grep '/ld-linux'`
 echo "$MSG" | grep -q '[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]'
 rm dummy.c a.out
+unset MSG
 
 # 现在我们的交叉工具链已经构建完成，可以完成 limits.h 头文件的安装
 $LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tools/mkheaders

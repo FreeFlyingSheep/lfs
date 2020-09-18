@@ -20,9 +20,9 @@ esac
 
 # GCC 文档推荐在一个专用的目录中构建 GCC
 mkdir -v build
-cd build
+cd       build
 
-# 准备编译 GCC
+# 配置 GCC
 ../configure                                       \
     --target=$LFS_TGT                              \
     --prefix=$LFS/tools                            \

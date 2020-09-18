@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 MPC
+# 配置 MPC
 ./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/mpc-1.2.0

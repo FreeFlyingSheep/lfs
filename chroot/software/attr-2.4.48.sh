@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Attr
+# 配置 Attr
 ./configure --prefix=/usr     \
             --disable-static  \
             --sysconfdir=/etc \

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Libelf
+# 配置 Libelf
 ./configure --prefix=/usr --disable-debuginfod --libdir=/lib
 
 # 编译 Libelf

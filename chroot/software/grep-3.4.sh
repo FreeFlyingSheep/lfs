@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Grep
+# 配置 Grep
 ./configure --prefix=/usr --bindir=/bin
 
 # 编译 Grep

@@ -4,7 +4,7 @@ set -e
 # 确保不安装某些不需要的文件
 sed -i 's/extras//' Makefile.in
 
-# 准备编译 Gawk
+# 配置 Gawk
 ./configure --prefix=/usr
 
 # 编译 Gawk

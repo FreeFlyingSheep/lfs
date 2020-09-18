@@ -4,7 +4,7 @@ set -e
 # 使构建系统不安装一个 configure 脚本未处理的静态库
 sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in
 
-# 准备编译 Ncurses
+# 配置 Ncurses
 ./configure --prefix=/usr           \
             --mandir=/usr/share/man \
             --with-shared           \

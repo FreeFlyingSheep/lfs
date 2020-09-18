@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Kmod
+# 配置 Kmod
 ./configure --prefix=/usr          \
             --bindir=/bin          \
             --sysconfdir=/etc      \

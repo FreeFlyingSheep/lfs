@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Acl
+# 配置 Acl
 ./configure --prefix=/usr         \
             --disable-static      \
             --libexecdir=/usr/lib \

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Bash
+# 配置 Bash
 ./configure --prefix=/usr                   \
             --build=$(support/config.guess) \
             --host=$LFS_TGT                 \

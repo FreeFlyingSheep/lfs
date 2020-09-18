@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Tar
+# 配置 Tar
 ./configure --prefix=/usr                     \
             --host=$LFS_TGT                   \
             --build=$(build-aux/config.guess) \

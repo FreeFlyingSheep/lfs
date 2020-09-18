@@ -8,7 +8,7 @@ patch -Np1 -i ../coreutils-8.32-i18n-1.patch
 # 阻止一个在某些机器上会无限循环的测试
 # sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk
 
-# 准备编译 Coreutils
+# 配置 Coreutils
 autoreconf -fiv
 FORCE_UNSAFE_CONFIGURE=1 ./configure \
             --prefix=/usr            \

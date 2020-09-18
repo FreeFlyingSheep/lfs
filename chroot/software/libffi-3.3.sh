@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Libffi
+# 配置 Libffi
 ./configure --prefix=/usr --disable-static --with-gcc-arch=native
 
 # 编译 Libffi

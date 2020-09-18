@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Bc
+# 配置 Bc
 PREFIX=/usr CC=gcc CFLAGS="-std=c99" ./configure.sh -G -O3
 
 # 编译 Bc

@@ -4,7 +4,7 @@ set -e
 # 解压文档
 tar -xf ../tcl8.6.10-html.tar.gz --strip-components=1
 
-# 准备编译 Tcl
+# 配置 Tcl
 SRCDIR=$(pwd)
 cd unix
 ./configure --prefix=/usr           \

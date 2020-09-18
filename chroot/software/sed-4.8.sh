@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Sed
+# 配置 Sed
 ./configure --prefix=/usr --bindir=/bin
 
 # 编译 Sed，并生成 HTML 文档

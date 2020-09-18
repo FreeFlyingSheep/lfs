@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Pkg-config
+# 配置 Pkg-config
 ./configure --prefix=/usr              \
             --with-internal-glib       \
             --disable-host-tool        \

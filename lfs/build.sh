@@ -29,6 +29,3 @@ echo -e "编译交叉工具链完成！\n"
 echo "交叉编译临时工具……"
 bash ~/scripts/tools.sh
 echo -e "交叉编译临时工具完成！\n"
-
-echo "退出 lfs 用户……"
-exit 0

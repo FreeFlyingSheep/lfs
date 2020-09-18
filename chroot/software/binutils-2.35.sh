@@ -9,9 +9,9 @@ set -e
 
 # Binutils 文档推荐在一个专用的构建目录中构建 Binutils
 mkdir -v build
-cd build
+cd       build
 
-# 准备编译 Binutils
+# 配置 Binutils
 ../configure --prefix=/usr       \
              --enable-gold       \
              --enable-ld=default \

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Perl
+# 配置 Perl
 sh Configure -des                                        \
              -Dprefix=/usr                               \
              -Dvendorprefix=/usr                         \

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Findutils
+# 配置 Findutils
 ./configure --prefix=/usr --localstatedir=/var/lib/locate
 
 # 编译 Findutils

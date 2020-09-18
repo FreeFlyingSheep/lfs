@@ -43,6 +43,54 @@ chroot "$LFS" /usr/bin/env -i   \
     << "EOF"
 echo -e "进入 Chroot 环境完成！\n"
 bash /sources/scripts/init.sh
+
+echo "清理系统……"
+# 清理在执行测试的过程中遗留的一些文件
+rm -rf /tmp/*
+
+# 登出
+logout
+EOF
+
+# 使用新的 chroot 命令行重新进入 Chroot 环境
+# 通过管道来指定进入 Chroot 后需要执行的命令
+chroot "$LFS" /usr/bin/env -i          \
+    HOME=/root TERM="$TERM"            \
+    PS1='(lfs chroot) \u:\w\$ '        \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    /bin/bash --login << "EOF"
+# 在本章的前几节中，有几个静态库的安装没有被禁止，目的是满足一些软件包的退化测试需要
+# 这些库来自于 binutils、bzip2、e2fsprogs、flex、libtool 和 zlib
+# 现在可以删除它们
+rm -f /usr/lib/lib{bfd,opcodes}.a
+rm -f /usr/lib/libctf{,-nobfd}.a
+rm -f /usr/lib/libbz2.a
+rm -f /usr/lib/lib{com_err,e2p,ext2fs,ss}.a
+rm -f /usr/lib/libltdl.a
+rm -f /usr/lib/libfl.a
+rm -f /usr/lib/libz.a
+
+# 在 /usr/lib 和 /usr/libexec 目录中还有一些扩展名为 .la 的文件
+# 它们是 "libtool 档案" 文件
+# 它们在链接到共享库，特别是使用 autotools 以外的构建系统时，是不必要，甚至有害的
+find /usr/lib /usr/libexec -name \*.la -delete
+
+# 之前步骤中构建的编译器仍然有一部分安装在系统上，它现在已经没有存在的意义了
+find /usr -depth -name $(uname -m)-lfs-linux-gnu\* | xargs rm -rf
+
+# /tools 也可以被删除，从而获得更多可用空间
+rm -rf /tools
+
+# 移除上一章开始时创建的临时 'tester' 用户账户
+# 我们并没创建测试用户，所以这里不需要移除
+# userdel -r tester
+echo -e "清理系统完成！\n"
+
+echo "设置系统配置……"
+bash /sources/scripts/config.sh
+echo -e "设置系统配置完成！\n"
+
+logout
 EOF
 
 echo "卸载虚拟磁盘……"

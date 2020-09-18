@@ -3,9 +3,9 @@ set -e
 
 # GCC 文档推荐在一个专用的目录中构建 GCC
 mkdir -v build
-cd build
+cd       build
 
-# 准备编译 Libstdc++
+# 配置 Libstdc++
 ../libstdc++-v3/configure           \
     --host=$LFS_TGT                 \
     --build=$(../config.guess)      \

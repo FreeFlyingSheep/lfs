@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Diffutils
+# 配置 Diffutils
 ./configure --prefix=/usr --host=$LFS_TGT
 
 # 编译 Diffutils

@@ -10,7 +10,7 @@ sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
 # 确保 man 页面被安装到正确位置
 sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
 
-# 准备编译 Bzip2
+# 配置 Bzip2
 make -f Makefile-libbz2_so
 make clean
 

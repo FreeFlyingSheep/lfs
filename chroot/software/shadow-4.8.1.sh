@@ -20,7 +20,7 @@ sed -i 's:DICTPATH.*:DICTPATH\t/lib/cracklib/pw_dict:' etc/login.defs
 # 进行微小的改动，使 useradd 使用 1000 作为第一个组编号
 sed -i 's/1000/999/' etc/useradd
 
-# 准备编译 Shadow
+# 配置 Shadow
 touch /usr/bin/passwd
 ./configure --sysconfdir=/etc \
             --with-group-name-max-length=32

@@ -12,7 +12,7 @@ make -C include
 make -C progs tic
 popd
 
-# 准备编译 Ncurses
+# 配置 Ncurses
 ./configure --prefix=/usr                \
             --host=$LFS_TGT              \
             --build=$(./config.guess)    \

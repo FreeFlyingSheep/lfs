@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Gperf
+# 配置 Gperf
 ./configure --prefix=/usr --docdir=/usr/share/doc/gperf-3.1
 
 # 编译 Gperf

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Gettext
+# 配置 Gettext
 ./configure --disable-shared
 
 # 编译 Gettext

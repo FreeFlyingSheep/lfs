@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Inetutils
+# 配置 Inetutils
 ./configure --prefix=/usr        \
             --localstatedir=/var \
             --disable-logger     \

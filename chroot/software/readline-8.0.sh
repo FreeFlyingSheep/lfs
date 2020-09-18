@@ -7,7 +7,7 @@ set -e
 sed -i '/MV.*old/d' Makefile.in
 sed -i '/{OLDSUFF}/c:' support/shlib-install
 
-# 准备编译 Readline
+# 配置 Readline
 ./configure --prefix=/usr    \
             --disable-static \
             --with-curses    \

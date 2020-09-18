@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Expat
+# 配置 Expat
 ./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/expat-2.2.9

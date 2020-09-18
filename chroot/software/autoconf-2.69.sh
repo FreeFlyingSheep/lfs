@@ -4,7 +4,7 @@ set -e
 # 修复 Perl 5.28 引入的 bug
 sed -i '361 s/{/\\{/' bin/autoscan.in
 
-# 准备编译 Autoconf
+# 配置 Autoconf
 ./configure --prefix=/usr
 
 # 编译 Autoconf

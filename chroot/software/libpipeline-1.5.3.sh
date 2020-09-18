@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Libpipeline
+# 配置 Libpipeline
 ./configure --prefix=/usr
 
 # 编译 Libpipeline

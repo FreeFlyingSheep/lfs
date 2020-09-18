@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Gettext
+# 配置 Gettext
 ./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/gettext-0.21

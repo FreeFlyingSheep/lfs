@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 OpenSSL
+# 配置 OpenSSL
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \

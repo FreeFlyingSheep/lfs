@@ -17,9 +17,9 @@ patch -Np1 -i ../glibc-2.32-fhs-1.patch
 
 # Glibc 文档推荐在一个专用目录中构建 Glibc
 mkdir -v build
-cd build
+cd       build
 
-# 准备编译 Glibc
+# 配置 Glibc
 ../configure                             \
       --prefix=/usr                      \
       --host=$LFS_TGT                    \

@@ -4,7 +4,7 @@ set -e
 # 整合上游进行的一些修复
 patch -Np1 -i ../bash-5.0-upstream_fixes-1.patch
 
-# 准备编译 Bash
+# 配置 Bash
 ./configure --prefix=/usr                    \
             --docdir=/usr/share/doc/bash-5.0 \
             --without-bash-malloc            \

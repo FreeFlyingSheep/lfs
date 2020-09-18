@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 DejaGNU
+# 配置 DejaGNU
 ./configure --prefix=/usr
 makeinfo --html --no-split -o doc/dejagnu.html doc/dejagnu.texi
 makeinfo --plaintext       -o doc/dejagnu.txt  doc/dejagnu.texi

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 GRUB
+# 配置 GRUB
 ./configure --prefix=/usr          \
             --sbindir=/sbin        \
             --sysconfdir=/etc      \

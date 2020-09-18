@@ -4,7 +4,7 @@ set -e
 # 修复由 perl-5.22 及更新版本导致的警告
 sed -i 's:\\\${:\\\$\\{:' intltool-update.in
 
-# 准备编译 Intltool
+# 配置 Intltool
 ./configure --prefix=/usr
 
 # 编译 Intltool

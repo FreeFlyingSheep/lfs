@@ -6,9 +6,9 @@ ln -s gthr-posix.h libgcc/gthr-default.h
 
 # GCC 文档建议在一个专用目录中构建 GCC
 mkdir -v build
-cd build
+cd       build
 
-# 准备编译 Libstdc++
+# 配置 Libstdc++
 ../libstdc++-v3/configure            \
     CXXFLAGS="-g -O2 -D_GNU_SOURCE"  \
     --prefix=/usr                    \

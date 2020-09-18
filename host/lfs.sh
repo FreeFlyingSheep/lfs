@@ -53,6 +53,9 @@ echo "切换到 lfs 用户……"
 su - lfs << "EOF"
 echo -e "切换到 lfs 用户完成！\n"
 bash ~/scripts/init.sh
+
+echo "退出 lfs 用户……"
+exit 0
 EOF
 echo -e "退出 lfs 用户完成\n"
 

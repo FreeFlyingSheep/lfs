@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 MPFR
+# 配置 MPFR
 ./configure --prefix=/usr        \
             --disable-static     \
             --enable-thread-safe \

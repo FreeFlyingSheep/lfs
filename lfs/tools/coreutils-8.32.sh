@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Coreutils
+# 配置 Coreutils
 ./configure --prefix=/usr                     \
             --host=$LFS_TGT                   \
             --build=$(build-aux/config.guess) \

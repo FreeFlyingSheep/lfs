@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 准备编译 Bison
+# 配置 Bison
 ./configure --prefix=/usr \
             --docdir=/usr/share/doc/bison-3.7.1
 
