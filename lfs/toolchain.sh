@@ -34,13 +34,8 @@ done
 # 确认新工具链的各基本功能 (编译和链接) 能如我们所预期的那样工作
 echo 'int main(){}' > dummy.c
 $LFS_TGT-gcc dummy.c
-MSG1=`readelf -l a.out | grep '/ld-linux'`
-MSG2='[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]'
-echo "$MSG1" | grep -q "$MSG2"
-if [ $? -ne 0 ]; then
-  echo "交叉编译工具错误！"
-  exit 1
-fi
+MSG=`readelf -l a.out | grep '/ld-linux'`
+echo "$MSG" | grep -q '[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]'
 rm dummy.c a.out
 
 # 现在我们的交叉工具链已经构建完成，可以完成 limits.h 头文件的安装
@@ -50,7 +45,7 @@ $LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tools/mkheaders
 echo "构建 GCC-10.2.0 中的 Libstdc++，第一遍……"
 tar -xf gcc-10.2.0.tar.*
 pushd gcc-10.2.0 > /dev/null
-time bash ${DIR}/libstdcpp-10.2.0.sh > ${LOG_DIR}/${libstdcpp-10.2.0}.log 2>&1
+time bash ${DIR}/libstdcpp-10.2.0.sh > ${LOG_DIR}/libstdcpp-10.2.0.log 2>&1
 popd > /dev/null
 rm -rf gcc-10.2.0 
 echo -e "构建 GCC-10.2.0 中的 Libstdc++，第一遍 完成！\n"

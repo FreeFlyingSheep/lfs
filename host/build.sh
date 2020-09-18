@@ -22,7 +22,7 @@ echo -e "下载并检查软件包完成！\n"
 bash host/lfs.sh
 
 # 移动日志文件
-mv ${LFS}/sources/log/*
+mv ${LFS}/sources/log/* ${LOG_DIR}
 
 # 7. 进入 Chroot 并构建其他临时工具
 # 8. 安装基本系统软件

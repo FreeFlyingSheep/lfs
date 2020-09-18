@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "构建其他临时工具……"
-
 DIR=/sources/scripts/tools
 LOG_DIR=${LFS}/sources/log/chroot/tools
 
