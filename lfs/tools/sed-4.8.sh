@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf sed-4.8.tar.xz
-pushd sed-4.8
-
 # 准备编译 Sed
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
@@ -14,6 +11,3 @@ make
 
 # 安装 Sed
 make DESTDIR=$LFS install
-
-popd
-rm -rf sed-4.8

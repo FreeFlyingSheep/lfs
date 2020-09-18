@@ -41,3 +41,28 @@ chroot "$LFS" /usr/bin/env -i   \
     << "EOF"
 bash /sources/scripts/init.sh
 EOF
+
+echo "卸载虚拟磁盘……"
+# 解除虚拟文件系统的挂载
+umount -v $LFS/dev/pts
+umount -v $LFS/dev
+umount -v $LFS/run
+umount -v $LFS/proc
+umount -v $LFS/sys
+
+# 如果为 LFS 创建了多个分区，在解除 LFS 文件系统的挂载前，先解除其他挂载点
+# 我们的虚拟磁盘只有一个分区
+# umount -v $LFS/usr
+# umount -v $LFS/home
+# umount -v $LFS
+
+# 解除 LFS 文件系统本身的挂载
+umount -v $LFS
+
+# 现在重新启动系统
+# 相应的，我们需要卸载虚拟磁盘，而不是重启
+# shutdown -r now
+
+# 卸除虚拟的块设备
+losetup -D
+echo -e "卸载虚拟磁盘完成！\n"

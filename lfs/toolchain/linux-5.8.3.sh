@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf linux-5.8.3.tar.xz
-pushd linux-5.8.3
-
 # 确保软件包中没有遗留陈旧的文件
 make mrproper
 
@@ -13,6 +10,3 @@ make headers
 find usr/include -name '.*' -delete
 rm usr/include/Makefile
 cp -rv usr/include $LFS/usr
-
-popd
-rm -rf linux-5.8.3

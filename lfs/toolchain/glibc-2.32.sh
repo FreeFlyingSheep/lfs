@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf glibc-2.32.tar.xz
-pushd glibc-2.32
-
 # 创建一个 LSB 兼容性符号链接
 # 对于 x86_64，创建一个动态链接器正常工作所必须的符号链接
 case $(uname -m) in
@@ -36,6 +33,3 @@ make
 
 # 安装 Glibc
 make DESTDIR=$LFS install
-
-popd
-rm -rf glibc-2.32

@@ -22,11 +22,13 @@ export MAKEFLAGS='-j8'
 
 cd $LFS/sources
 
-# 编译交叉工具链
+echo "编译交叉工具链……"
 bash ~/scripts/toolchain.sh
+echo -e "编译交叉工具链完成！\n"
 
-# 交叉编译临时工具
+echo "交叉编译临时工具……"
 bash ~/scripts/tools.sh
+echo -e "交叉编译临时工具完成！\n"
 
 echo "退出 lfs 用户……"
 exit 0

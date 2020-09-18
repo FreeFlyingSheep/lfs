@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf gcc-10.2.0.tar.xz
-pushd gcc-10.2.0
-
 # GCC 文档推荐在一个专用的目录中构建 GCC
 mkdir -v build
 cd build
@@ -23,6 +20,3 @@ make
 
 # 安装 Libstdc++
 make DESTDIR=$LFS install
-
-popd
-rm -rf gcc-10.2.0

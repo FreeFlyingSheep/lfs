@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf ncurses-6.2.tar.gz
-pushd ncurses-6.2
-
 # 保证在配置时优先查找 gawk 命令
 sed -i s/mawk// configure
 
@@ -39,6 +36,3 @@ mv -v $LFS/usr/lib/libncursesw.so.6* $LFS/lib
 
 # 重新生成符号链接
 ln -sfv ../../lib/$(readlink $LFS/usr/lib/libncursesw.so) $LFS/usr/lib/libncursesw.so
-
-popd
-rm -rf ncurses-6.2

@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf perl-5.32.0.tar.xz
-pushd perl-5.32.0
-
 # 准备编译 Perl
 sh Configure -des                                        \
              -Dprefix=/usr                               \
@@ -20,6 +17,3 @@ make
 
 # 安装 Perl
 make install
-
-popd
-rm -rf perl-5.32.0

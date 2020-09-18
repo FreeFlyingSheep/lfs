@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf bash-5.0.tar.gz
-pushd bash-5.0
-
 # 准备编译 Bash
 ./configure --prefix=/usr                   \
             --build=$(support/config.guess) \
@@ -21,6 +18,3 @@ mv $LFS/usr/bin/bash $LFS/bin/bash
 
 # 为那些使用 sh 命令运行 shell 的程序考虑，创建一个链接
 ln -sv bash $LFS/bin/sh
-
-popd
-rm -rf bash-5.0

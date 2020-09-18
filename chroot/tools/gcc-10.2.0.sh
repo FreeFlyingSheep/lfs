@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf gcc-10.2.0.tar.xz
-pushd gcc-10.2.0
-
 # 创建一个符号链接，允许在 GCC 源码树中构建 Libstdc++
 ln -s gthr-posix.h libgcc/gthr-default.h
 
@@ -25,6 +22,3 @@ make
 
 # 安装 Libstdc++
 make install
-
-popd
-rm -rf gcc-10.2.0

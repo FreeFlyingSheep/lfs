@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-tar -xf gcc-10.2.0.tar.xz
-pushd gcc-10.2.0
-
 # GCC 依赖于 GMP、MPFR 和 MPC 这三个包
 # 将它们都解压到 GCC 源码目录中，并重命名解压出的目录，这样 GCC 构建过程就能自动使用它们
 tar -xf ../mpfr-4.1.0.tar.xz
@@ -57,6 +54,3 @@ make install
 cd ..
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
-
-popd
-rm -rf gcc-10.2.0
