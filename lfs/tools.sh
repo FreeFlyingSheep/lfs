@@ -6,6 +6,11 @@ LOG_DIR=${LFS}/sources/log/lfs/tools
 
 mkdir -p ${LOG_DIR}
 
+# 指定并行构建数目
+export MAKEFLAGS='-j8'
+
+cd $LFS/sources
+
 tools=(
   'M4-1.4.18'
   'Ncurses-6.2'

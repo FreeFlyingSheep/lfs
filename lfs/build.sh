@@ -13,14 +13,9 @@ if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
 PATH=$LFS/tools/bin:$PATH
 export LFS LC_ALL LFS_TGT PATH
 
-# 进行并行构建
-export MAKEFLAGS='-j8'
-
 # 确认环境变量是否正确配置
 # 显然这一步在该脚本中是多余的
 # echo "$LFS"
-
-cd $LFS/sources
 
 echo "编译交叉工具链……"
 bash ~/scripts/toolchain.sh

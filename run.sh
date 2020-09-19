@@ -3,7 +3,7 @@ set -e
 
 # 本脚本遵循 MIT 协议
 # 本脚本用于自动构建 LFS systemd 10.0
-VERSION=0.10
+VERSION=0.11
 
 echo "    __    ___________"
 echo "   / /   / ____/ ___/"
@@ -20,9 +20,6 @@ fi
 
 # 切换到脚本所在的目录
 cd `dirname $0`
-
-# 虚拟磁盘名称
-export DISK_IMG=disk.img
 
 # init.sh 完成一些前期工作后
 # 交给 host/build.sh 完成构建

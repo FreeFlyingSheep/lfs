@@ -6,6 +6,11 @@ LOG_DIR=/sources/log/chroot/tools
 
 mkdir -p ${LOG_DIR}
 
+# 指定并行构建数目
+export MAKEFLAGS='-j8'
+
+cd /sources
+
 tools=(
   'GCC-10.2.0 中的 Libstdc++，第二遍'
   'Gettext-0.21'

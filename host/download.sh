@@ -10,7 +10,7 @@ mkdir -pv ${LFS}/sources
 chmod -v a+wt ${LFS}/sources
 
 # 下载 lfs-packages-10.0.tar
-wget -c ${URL}
+wget --continue ${URL}
 
 # 解包至 $LFS/sources
 tar -xf lfs-packages-10.0.tar -C ${LFS}/sources

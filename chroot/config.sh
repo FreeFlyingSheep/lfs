@@ -1,10 +1,14 @@
 #!/bin/bash
 set -e
 
-# 一般网络配置
-ln -s /dev/null /etc/systemd/network/99-default.link
+LOG=/sources/log/chrooot/config.log
 
-cat > /etc/systemd/network/10-eth-dhcp.network << "EOF"
+# 一般网络配置
+ln -s /dev/null /etc/systemd/network/99-default.link \
+  > /sources/log/chrooot/${LOG} 2>&1
+
+cat > /etc/systemd/network/10-eth-dhcp.network \
+  >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
 [Match]
 Name=eth0
 
@@ -15,11 +19,12 @@ DHCP=ipv4
 UseDomains=true
 EOF
 
-ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf
+ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf \
+  >> /sources/log/chrooot/${LOG} 2>&1
 
-echo "lfs" > /etc/hostname
+echo "lfs" > /etc/hostname >> /sources/log/chrooot/${LOG} 2>&1
 
-cat > /etc/hosts << "EOF"
+cat > /etc/hosts >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
 # Begin /etc/hosts
 
 127.0.0.1 localhost.localdomain localhost
@@ -38,13 +43,7 @@ EOF
 # 使用默认配置
 
 # 配置系统时钟
-cat > /etc/adjtime << "EOF"
-0.0 0 0.0
-0
-LOCAL
-EOF
-
-timedatectl set-timezone Asia/Shanghai
+# 使用默认配置
 
 # 配置 Linux 控制台
 # 使用默认配置
@@ -60,13 +59,13 @@ echo "$MSG" | grep -q 'USD'
 MSG=`LC_ALL=${LOCALE} locale int_prefix`
 echo "$MSG" | grep -q '1'
 
-cat > /etc/locale.conf << "EOF"
+cat > /etc/locale.conf >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
 LANG=${LOCALE}
 EOF
 unset LOCALE MSG
 
 # 创建 /etc/inputrc 文件
-cat > /etc/inputrc << "EOF"
+cat > /etc/inputrc >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
 # Begin /etc/inputrc
 # Modified by Chris Lynn <roryo@roryo.dynup.net>
 
@@ -111,7 +110,7 @@ set bell-style none
 EOF
 
 # 创建 /etc/shells 文件
-cat > /etc/shells << "EOF"
+cat > /etc/shells >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
 # Begin /etc/shells
 
 /bin/sh

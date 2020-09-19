@@ -1,10 +1,13 @@
 #!/bin/bash
 set -e
 
-LOG=${LFS}/sources/log/chroot/chroot.log
+LOG_DIR=/sources/log/chroot
+LOG=${LOG_DIR}/chroot.log
+
+mkdir -p ${LOG_DIR}
 
 # 创建一些位于根目录中的目录
-mkdir -pv /{boot,home,mnt,opt,srv} >> ${LOG} 2>&1
+mkdir -pv /{boot,home,mnt,opt,srv} > ${LOG} 2>&1
 
 # 为这些直接位于根目录中的目录创建次级目录结构
 mkdir -pv /etc/{opt,sysconfig} >> ${LOG} 2>&1

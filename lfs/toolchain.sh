@@ -6,6 +6,11 @@ LOG_DIR=${LFS}/sources/log/lfs/toolchain
 
 mkdir -p ${LOG_DIR}
 
+# 指定并行构建数目
+export MAKEFLAGS='-j8'
+
+cd $LFS/sources
+
 tools=(
   'Binutils-2.35 - 第一遍'
   'GCC-10.2.0 - 第一遍'

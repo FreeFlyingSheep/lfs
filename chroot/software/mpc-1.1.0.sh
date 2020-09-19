@@ -4,7 +4,7 @@ set -e
 # 配置 MPC
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/mpc-1.2.0
+            --docdir=/usr/share/doc/mpc-1.1.0
 
 # 编译 MPC，并生成 HTML 文档
 make

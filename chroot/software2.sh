@@ -4,6 +4,11 @@ set -e
 DIR=/sources/scripts/software
 LOG_DIR=/sources/log/chroot/software
 
+# 指定并行构建数目
+export MAKEFLAGS='-j8'
+
+cd /sources
+
 tools=(
   'Libtool-2.4.6'
   'GDBM-1.18.1'
@@ -20,8 +25,8 @@ tools=(
   'Libffi-3.3'
   'OpenSSL-1.1.1g'
   'Python-3.8.5'
-  'Ninja-1.10.1'
-  'Meson-0.55.1'
+  'Ninja-1.10.0'
+  'Meson-0.55.0'
   'Coreutils-8.32'
   'Check-0.15.2'
   'Diffutils-3.7'
@@ -63,8 +68,8 @@ dirs=(
   libffi-3.3
   openssl-1.1.1g
   Python-3.8.5
-  ninja-1.10.1
-  meson-0.55.1
+  ninja-1.10.0
+  meson-0.55.0
   coreutils-8.32
   check-0.15.2
   diffutils-3.7

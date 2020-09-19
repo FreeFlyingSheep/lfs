@@ -6,9 +6,29 @@ LOG_DIR=/sources/log/chroot/software
 
 mkdir -p ${LOG_DIR}
 
+# 指定并行构建数目
+export MAKEFLAGS='-j8'
+
+cd /sources
+
+# 处理特例
+echo "构建 Man-pages-5.08……"
+tar -xf man-pages-5.08.tar.*
+pushd man-pages-5.08 > /dev/null
+time bash ${DIR}/man-pages-5.08.sh > ${LOG_DIR}/man-pages-5.08.log 2>&1
+popd > /dev/null
+rm -rf man-pages-5.08
+echo -e "构建 man-pages-5.08 完成！\n"
+
+echo "构建 Tcl-8.6.10……"
+tar -xf tcl8.6.10-src.tar.*
+pushd tcl8.6.10 > /dev/null
+time bash ${DIR}/tcl8.6.10.sh > ${LOG_DIR}/tcl8.6.10.log 2>&1
+popd > /dev/null
+rm -rf tcl8.6.10
+echo -e "构建 Tcl-8.6.10 完成！\n"
+
 tools=(
-  'Man-pages-5.08'
-  'Tcl-8.6.10'
   'Expect-5.45.4'
   'DejaGNU-1.6.2'
   'Iana-Etc-20200821'
@@ -25,10 +45,10 @@ tools=(
   'Binutils-2.35'
   'GMP-6.2.0'
   'MPFR-4.1.0'
-  'MPC-1.2.0'
+  'MPC-1.1.0'
   'Attr-2.4.48'
   'Acl-2.2.53'
-  'Libcap-2.43'
+  'Libcap-2.42'
   'Shadow-4.8.1'
   'GCC-10.2.0'
   'Pkg-config-0.29.2'
@@ -42,9 +62,7 @@ tools=(
 )
 
 dirs=(
-  man-pages-5.08
-  tcl8.6.10-src
-  expect-5.45.4
+  expect5.45.4
   dejagnu-1.6.2
   iana-etc-20200821
   glibc-2.32
@@ -60,10 +78,10 @@ dirs=(
   binutils-2.35
   gmp-6.2.0
   mpfr-4.1.0
-  mpc-1.2.0
+  mpc-1.1.0
   attr-2.4.48
   acl-2.2.53
-  libcap-2.43
+  libcap-2.42
   shadow-4.8.1
   gcc-10.2.0
   pkg-config-0.29.2

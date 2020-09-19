@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-LOG=${LOG_DIR}/chroot.log
+LOG=log/host/chroot.log
 
 # 将 $LFS/* 目录的所有者改变为 root
 chown -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools} > ${LOG} 2>&1
@@ -99,6 +99,13 @@ echo "退出 Chroot 环境……"
 logout
 EOF
 echo -e "退出 Chroot 环境完成！\n"
+
+echo "清理虚拟磁盘……"
+# 移动日志
+mv $LFS/sources/log/* log
+# 删除源码目录
+rm -rf $LFS/sources
+echo -e "清理虚拟磁盘完成！\n"
 
 echo "卸载虚拟磁盘……"
 # 解除虚拟文件系统的挂载

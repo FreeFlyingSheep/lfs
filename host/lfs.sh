@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-LOG=${LOG_DIR}/lfs.log
+LOG=log/host/lfs.log
 
 echo "创建目录布局……"
 mkdir -pv $LFS/{bin,etc,lib,sbin,usr,var} > ${LOG} 2>&1

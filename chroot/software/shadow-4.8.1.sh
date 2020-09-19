@@ -38,7 +38,6 @@ pwconv
 grpconv
 
 # 为用户 root 选择一个密码，并设定它
-passwd root << "EOF"
-123456
-123456
-EOF
+# passwd root
+# 我们改用 chpasswd 命令实现重定向密码
+echo "root:123456" | chpasswd

@@ -1,11 +1,6 @@
 #!/bin/bash
 set -e
 
-# 指定并行构建数目
-export MAKEFLAGS='-j8'
-
-cd /sources
-
 # 构建其他临时工具
 echo "构建其他临时工具……"
 bash /sources/scripts/tools.sh
