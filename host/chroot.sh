@@ -128,6 +128,9 @@ umount -v $LFS >> ${LOG} 2>&1
 # 相应的，我们需要删除回环设备，而不是重启
 # shutdown -r now
 
+# 删除 $LFS 目录
+rmdir -v ${LFS} >> ${LOG} 2>&1
+
 # 删除回环设备
 losetup -D >> ${LOG} 2>&1
 echo -e "卸载虚拟磁盘完成！\n"

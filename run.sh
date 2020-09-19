@@ -3,7 +3,7 @@ set -e
 
 # 本脚本遵循 MIT 协议
 # 本脚本用于自动构建 LFS systemd 10.0
-VERSION=0.11
+VERSION=0.12
 
 echo "    __    ___________"
 echo "   / /   / ____/ ___/"
@@ -11,7 +11,8 @@ echo "  / /   / /_   \__ \ "
 echo " / /___/ __/  ___/ / "
 echo "/_____/_/    /____/  "
 
-echo -e "\n自动构建 LFS systemd 10.0，脚本版本 v${VERSION}\n"
+echo -e "\n自动构建 LFS systemd 10.0，脚本版本 v${VERSION}"
+echo -e "警告：对运行该脚本可能产生的一切后果，本人概不负责！\n"
 
 if [ `id -u` -ne 0 ]; then
   echo "必须用 root 用户执行该脚本！"

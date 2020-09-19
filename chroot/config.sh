@@ -1,14 +1,12 @@
 #!/bin/bash
 set -e
 
-LOG=/sources/log/chrooot/config.log
+LOG=/sources/log/chroot/config.log
 
 # 一般网络配置
-ln -s /dev/null /etc/systemd/network/99-default.link \
-  > /sources/log/chrooot/${LOG} 2>&1
+ln -sv /dev/null /etc/systemd/network/99-default.link > ${LOG} 2>&1
 
-cat > /etc/systemd/network/10-eth-dhcp.network \
-  >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
+cat > /etc/systemd/network/10-eth-dhcp.network << "EOF"
 [Match]
 Name=eth0
 
@@ -19,12 +17,11 @@ DHCP=ipv4
 UseDomains=true
 EOF
 
-ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf \
-  >> /sources/log/chrooot/${LOG} 2>&1
+ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf >> ${LOG} 2>&1
 
-echo "lfs" > /etc/hostname >> /sources/log/chrooot/${LOG} 2>&1
+echo "lfs" > /etc/hostname
 
-cat > /etc/hosts >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
+cat > /etc/hosts << "EOF"
 # Begin /etc/hosts
 
 127.0.0.1 localhost.localdomain localhost
@@ -59,13 +56,13 @@ echo "$MSG" | grep -q 'USD'
 MSG=`LC_ALL=${LOCALE} locale int_prefix`
 echo "$MSG" | grep -q '1'
 
-cat > /etc/locale.conf >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
+cat > /etc/locale.conf << "EOF"
 LANG=${LOCALE}
 EOF
 unset LOCALE MSG
 
 # 创建 /etc/inputrc 文件
-cat > /etc/inputrc >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
+cat > /etc/inputrc << "EOF"
 # Begin /etc/inputrc
 # Modified by Chris Lynn <roryo@roryo.dynup.net>
 
@@ -110,7 +107,7 @@ set bell-style none
 EOF
 
 # 创建 /etc/shells 文件
-cat > /etc/shells >> /sources/log/chrooot/${LOG} 2>&1 << "EOF"
+cat > /etc/shells << "EOF"
 # Begin /etc/shells
 
 /bin/sh

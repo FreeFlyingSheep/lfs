@@ -32,6 +32,3 @@ bash host/lfs.sh
 # chroot/config.sh 完成第 9 步，把后续任务交给 chroot/config.sh
 # chroot/boot.sh 完成第 10 步和第 11 步的前半部分，然后回到 host/chroot.sh 继续执行
 bash host/chroot.sh
-
-# 删除没用的目录
-rmdir -v ${LFS}

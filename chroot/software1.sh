@@ -7,7 +7,7 @@ LOG_DIR=/sources/log/chroot/software
 mkdir -p ${LOG_DIR}
 
 # 指定并行构建数目
-export MAKEFLAGS='-j8'
+export MAKEFLAGS='-j4'
 
 cd /sources
 

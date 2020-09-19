@@ -5,7 +5,7 @@ DIR=/sources/scripts/software
 LOG_DIR=/sources/log/chroot/software
 
 # 指定并行构建数目
-export MAKEFLAGS='-j8'
+export MAKEFLAGS='-j4'
 
 cd /sources
 
