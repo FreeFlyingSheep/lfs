@@ -4,7 +4,7 @@ set -e
 LOG=${LOG_DIR}/lfs.log
 
 echo "创建目录布局……"
-mkdir -pv $LFS/{bin,etc,lib,sbin,usr,var} >> ${LOG} 2>&1
+mkdir -pv $LFS/{bin,etc,lib,sbin,usr,var} > ${LOG} 2>&1
 case $(uname -m) in
   x86_64) mkdir -pv $LFS/lib64  >> ${LOG} 2>&1 ;;
 esac
@@ -51,6 +51,8 @@ echo -e "改变目录所有者完成！\n"
 # init.sh 为 lfs/init.sh 的拷贝
 echo "切换到 lfs 用户……"
 su - lfs << "EOF"
+set -e
+
 echo -e "切换到 lfs 用户完成！\n"
 bash ~/scripts/init.sh
 

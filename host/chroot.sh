@@ -4,13 +4,13 @@ set -e
 LOG=${LOG_DIR}/chroot.log
 
 # 将 $LFS/* 目录的所有者改变为 root
-chown -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools} >> ${LOG} 2>&1
+chown -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools} > ${LOG} 2>&1
 case $(uname -m) in
-  x86_64) chown -R root:root $LFS/lib64  >> ${LOG} 2>&1 ;;
+  x86_64) chown -R root:root $LFS/lib64 >> ${LOG} 2>&1 ;;
 esac
 
 # 创建虚拟文件系统的挂载点
-mkdir -pv $LFS/{dev,proc,sys,run}  >> ${LOG} 2>&1
+mkdir -pv $LFS/{dev,proc,sys,run} >> ${LOG} 2>&1
 
 # 创建初始设备节点
 mknod -m 600 $LFS/dev/console c 5 1 >> ${LOG} 2>&1
@@ -41,15 +41,10 @@ chroot "$LFS" /usr/bin/env -i   \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     /bin/bash --login +h        \
     << "EOF"
+set -e
+
 echo -e "进入 Chroot 环境完成！\n"
 bash /sources/scripts/init.sh
-
-echo "清理系统……"
-# 清理在执行测试的过程中遗留的一些文件
-rm -rf /tmp/*
-
-# 登出
-logout
 EOF
 
 # 使用新的 chroot 命令行重新进入 Chroot 环境
@@ -59,6 +54,8 @@ chroot "$LFS" /usr/bin/env -i          \
     PS1='(lfs chroot) \u:\w\$ '        \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     /bin/bash --login << "EOF"
+set -e
+
 # 在本章的前几节中，有几个静态库的安装没有被禁止，目的是满足一些软件包的退化测试需要
 # 这些库来自于 binutils、bzip2、e2fsprogs、flex、libtool 和 zlib
 # 现在可以删除它们
@@ -90,8 +87,18 @@ echo "设置系统配置……"
 bash /sources/scripts/config.sh
 echo -e "设置系统配置完成！\n"
 
+echo "使 LFS 系统可引导……"
+bash /sources/scripts/boot.sh
+echo -e "使 LFS 系统可引导完成！\n"
+
+echo "创建版本信息……"
+bash /sources/scripts/version.sh
+echo -e "创建版本信息完成！\n"
+
+echo "退出 Chroot 环境……"
 logout
 EOF
+echo -e "退出 Chroot 环境完成！\n"
 
 echo "卸载虚拟磁盘……"
 # 解除虚拟文件系统的挂载
@@ -111,9 +118,9 @@ umount -v $LFS/sys >> ${LOG} 2>&1
 umount -v $LFS >> ${LOG} 2>&1
 
 # 现在重新启动系统
-# 相应的，我们需要卸载虚拟磁盘，而不是重启
+# 相应的，我们需要删除回环设备，而不是重启
 # shutdown -r now
 
-# 卸除虚拟的块设备
+# 删除回环设备
 losetup -D >> ${LOG} 2>&1
 echo -e "卸载虚拟磁盘完成！\n"

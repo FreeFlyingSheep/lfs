@@ -6,7 +6,7 @@ ln -s /dev/null /etc/systemd/network/99-default.link
 
 cat > /etc/systemd/network/10-eth-dhcp.network << "EOF"
 [Match]
-Name=<网络设备名>
+Name=eth0
 
 [Network]
 DHCP=ipv4

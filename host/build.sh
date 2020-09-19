@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+LOG_DIR=log/host
+
 # 1. 引言
 # 2. 准备宿主系统
 echo "创建并挂载虚拟磁盘……"
@@ -11,6 +13,8 @@ echo -e "创建并挂载虚拟磁盘完成！\n"
 echo "下载并检查软件包……"
 bash host/download.sh > ${LOG_DIR}/download.log 2>&1
 echo -e "下载并检查软件包完成！\n"
+
+LOG_DIR=log
 
 # 4. 最后准备工作
 # 5. 编译交叉工具链

@@ -2,7 +2,7 @@
 set -e
 
 DIR=/sources/scripts/tools
-LOG_DIR=${LFS}/sources/log/chroot/tools
+LOG_DIR=/sources/log/chroot/tools
 
 mkdir -p ${LOG_DIR}
 

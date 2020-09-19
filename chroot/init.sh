@@ -1,28 +1,30 @@
 #!/bin/bash
 set -e
 
+LOG=${LFS}/sources/log/chroot/chroot.log
+
 # 创建一些位于根目录中的目录
-mkdir -pv /{boot,home,mnt,opt,srv}
+mkdir -pv /{boot,home,mnt,opt,srv} >> ${LOG} 2>&1
 
 # 为这些直接位于根目录中的目录创建次级目录结构
-mkdir -pv /etc/{opt,sysconfig}
-mkdir -pv /lib/firmware
-mkdir -pv /media/{floppy,cdrom}
-mkdir -pv /usr/{,local/}{bin,include,lib,sbin,src}
-mkdir -pv /usr/{,local/}share/{color,dict,doc,info,locale,man}
-mkdir -pv /usr/{,local/}share/{misc,terminfo,zoneinfo}
-mkdir -pv /usr/{,local/}share/man/man{1..8}
-mkdir -pv /var/{cache,local,log,mail,opt,spool}
-mkdir -pv /var/lib/{color,misc,locate}
+mkdir -pv /etc/{opt,sysconfig} >> ${LOG} 2>&1
+mkdir -pv /lib/firmware >> ${LOG} 2>&1
+mkdir -pv /media/{floppy,cdrom} >> ${LOG} 2>&1
+mkdir -pv /usr/{,local/}{bin,include,lib,sbin,src} >> ${LOG} 2>&1
+mkdir -pv /usr/{,local/}share/{color,dict,doc,info,locale,man} >> ${LOG} 2>&1
+mkdir -pv /usr/{,local/}share/{misc,terminfo,zoneinfo} >> ${LOG} 2>&1
+mkdir -pv /usr/{,local/}share/man/man{1..8} >> ${LOG} 2>&1
+mkdir -pv /var/{cache,local,log,mail,opt,spool} >> ${LOG} 2>&1
+mkdir -pv /var/lib/{color,misc,locate} >> ${LOG} 2>&1
 
-ln -sfv /run /var/run
-ln -sfv /run/lock /var/lock
+ln -sfv /run /var/run >> ${LOG} 2>&1
+ln -sfv /run/lock /var/lock >> ${LOG} 2>&1
 
-install -dv -m 0750 /root
-install -dv -m 1777 /tmp /var/tmp
+install -dv -m 0750 /root >> ${LOG} 2>&1
+install -dv -m 1777 /tmp /var/tmp >> ${LOG} 2>&1
 
 # 为了满足那些需要 /etc/mtab 的工具，创建符号链接
-ln -sv /proc/self/mounts /etc/mtab
+ln -sv /proc/self/mounts /etc/mtab >> ${LOG} 2>&1
 
 # 创建一个基本的 /etc/hosts 文件，一些测试套件，以及 Perl 的一个配置文件将会使用它
 echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
@@ -92,5 +94,7 @@ EOF
 # 通过管道来指定新 shell 中需要执行的命令
 # build.sh 为 chroot/build.sh 的拷贝
 exec /bin/bash --login +h << "EOF"
+set -e
+
 bash /sources/scripts/build.sh
 EOF

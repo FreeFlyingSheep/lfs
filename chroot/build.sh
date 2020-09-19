@@ -28,9 +28,16 @@ echo -e "清理临时系统完成！\n"
 # ...
 
 # 安装基本系统软件
-# 参数 1 代表第一次执行 software.sh
+# 中途会替换 bash，software1.sh 完成前半部分
 echo "安装基本系统软件……"
-bash /sources/scripts/software.sh 1
+bash /sources/scripts/software1.sh
+
+# 执行新编译的 bash 程序 (替换当前正在执行的版本)
+# 替换后继续执行，完成后半部分
+exec /bin/bash --login +h << "EOF"
+set -e
+
+bash /sources/scripts/software2.sh
 echo -e "安装基本系统软件完成！\n"
 
 # 我们不移除调试符号，虚拟磁盘镜像大小是固定的，也无法节省这些空间
@@ -70,3 +77,11 @@ echo -e "安装基本系统软件完成！\n"
 
 # find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \
 #     -exec strip --strip-all {} ';'
+
+echo "清理系统……"
+# 清理在执行测试的过程中遗留的一些文件
+rm -rf /tmp/*
+
+# 登出，回到 host/chroot.sh
+logout
+EOF

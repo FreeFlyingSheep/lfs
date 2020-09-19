@@ -3,7 +3,7 @@ set -e
 
 # 本脚本遵循 MIT 协议
 # 本脚本用于自动构建 LFS systemd 10.0
-VERSION=0.9
+VERSION=0.10
 
 echo "    __    ___________"
 echo "   / /   / ____/ ___/"

@@ -21,12 +21,12 @@ done
 
 # 导出 $LFS 环境变量
 export LFS=/mnt/lfs
-echo -e "\$LFS 环境变量为: ${LFS}\n"
+echo -e "\n\$LFS 环境变量为 ${LFS}\n"
 
 # 清理上次的日志
 rm -rf log
 # 创建日志目录
-export LOG_DIR=log/host
+LOG_DIR=log/host
 mkdir -p ${LOG_DIR}
 
 echo "清理上次的构建……"

@@ -23,9 +23,3 @@ make
 # 安装 Bash，并把主要的可执行文件移动到 /bin
 make install
 mv -vf /usr/bin/bash /bin
-
-# 执行新编译的 bash 程序 (替换当前正在执行的版本)
-# 替换后继续执行，参数 2 代表第二次执行 software.sh
-exec /bin/bash --login +h << "EOF"
-bash /sources/scripts/software.sh 2
-EOF

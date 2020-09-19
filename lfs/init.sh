@@ -8,6 +8,8 @@ set -e
 # 为了实现自动构建，调整了这一块指令的流程
 # 同时为了与官方手册比对，该文件的后半部分通过注释列出了官方手册的操作
 cat > ~/.bash_profile << "EOF"
+set -e
+
 exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash -c "bash ~/scripts/build.sh"
 EOF
 source ~/.bash_profile
