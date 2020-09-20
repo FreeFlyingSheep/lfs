@@ -15,10 +15,9 @@ echo -e "创建目录布局完成！\n"
 echo "添加 lfs 用户……"
 groupadd lfs >> ${LOG} 2>&1
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs >> ${LOG} 2>&1
-passwd lfs >> ${LOG} 2>&1 << "EOF"
-123456
-123456
-EOF
+# 改用 chpasswd 命令实现重定向密码，使用随机密码保证密码强度符合要求
+# 从 root 切换到 lfs 不需要密码，而 lfs 用户最终也会被删除，所以这个密码并不会被使用
+echo "lfs:`date | md5sum`" | chpasswd
 echo -e "添加 lfs 用户完成！\n"
 
 # 一些商业发行版未做文档说明地将 /etc/bash.bashrc 引入 bash 初始化过程
