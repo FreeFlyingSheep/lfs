@@ -16,7 +16,7 @@ mkdir -pv $LFS/{dev,proc,sys,run} >> ${LOG} 2>&1
 mknod -m 600 $LFS/dev/console c 5 1 >> ${LOG} 2>&1
 mknod -m 666 $LFS/dev/null c 1 3  >> ${LOG} 2>&1
 
-#挂载和填充 /dev
+# 挂载和填充 /dev
 mount -v --bind /dev $LFS/dev >> ${LOG} 2>&1
 
 # 挂载虚拟内核文件系统
